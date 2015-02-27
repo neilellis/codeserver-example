@@ -1,1 +1,4 @@
 image: generic
+stores:
+ - mongodb:
+ 
