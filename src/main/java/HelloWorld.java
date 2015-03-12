@@ -9,7 +9,9 @@ public class HelloWorld {
     public static void main(String[] args) {
         port(8080);
         get("/", (req, res) -> {
-            MongoClient mongoClient = new MongoClient(new MongoClientURI(System.getenv("MONGODB_URL")));
+            String mongodb_url = System.getenv("MONGODB_URL");
+            System.out.println(mongodb_url);
+            MongoClient mongoClient = new MongoClient(new MongoClientURI(mongodb_url));
             DB db = mongoClient.getDB("example");
             DBCollection table = db.getCollection("visitors");
             BasicDBObject document = new BasicDBObject();
